@@ -1,20 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { title } from 'process';
 import { COMIC, COMICS } from '../data';
 import { Comic, SimpleComic } from '../model';
+import { TabService } from '../tab.service';
 
 @Component({
   selector: 'app-comics-list',
   templateUrl: './comics-list.component.html',
   styleUrls: ['./comics-list.component.css']
 })
-// export class ComicsListComponent implements OnInit {
+export class ComicsListComponent implements OnInit {
+  comics: Comic[] = COMICS; 
+  comicsFiltre:Comic[]=[];
+  constructor(private tabService:TabService){
+    
+  }
 
-//   constructor() { }
+  ngOnInit() {
+    this.comicsFiltre=this.comics;
+    this.tabService.titleChangedSource.subscribe (title=>{
+      if(title==null||title==undefined||title=="All"){
+      console.log(title+"*************************************");
+      this.comicsFiltre= this.comics;
+    }else {
+    
+      console.log(title+"*************************************")
+      this.comicsFiltre =this.comics.filter(
+        el=>el.title.toLowerCase().includes(title.toLowerCase()))} });
+ }
 
-//   ngOnInit() {
-//   }
-
-// }
+}
 
 // export class ComicsListComponent {
 //   comic: SimpleComic = {
@@ -25,8 +40,11 @@ import { Comic, SimpleComic } from '../model';
 //   price: 3.45,
 //   description: 'Walker and Pilgrim investigate...'
 //   }
-  export class ComicsListComponent {
+  //export class ComicsListComponent {
     // comic: SimpleComic = COMIC;
-    comics: Comic[] = COMICS; 
+   // comics: Comic[] = COMICS; 
+   // constructor(tabService:TabService){
+      
+   // }
     
-  }
+ // }

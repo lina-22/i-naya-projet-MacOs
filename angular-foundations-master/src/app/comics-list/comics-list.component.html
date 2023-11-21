@@ -1,8 +1,9 @@
-<ul class="list-unstyled" *ngFor="let comic of comics">
+<ul class="list-unstyled" *ngFor="let comic of comicsFiltre">
   <li class="media mt-5">
     <img class="mr-3" alt="Comic cover" src="../assets/image/image_not_available.jpg" />
     <div class="media-body">
       <h2 class="media-heading">
+        {{comic.title}}
         <span class="badge badge-danger">#{{comic.issueNumber}}</span>
         <span class="badge badge-pill badge- secondary"  *ngFor="let cp of comic.prices"><div *ngIf="price>0">${{cp.price}}</div></span>
       </h2>
