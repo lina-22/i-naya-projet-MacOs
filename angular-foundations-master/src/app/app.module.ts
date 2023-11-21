@@ -8,6 +8,8 @@ import { TabBarComponent } from './tab-bar/tab-bar.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicsListComponent } from './comics-list/comics-list.component';
+import { SortByTitlePipe } from './sort-by-title.pipe';
+import { RoutingModule } from './/routing.module';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { ComicsListComponent } from './comics-list/comics-list.component';
     TabBarComponent,
     NavBarComponent,
     ComicDetailComponent,
-    ComicsListComponent
+    ComicsListComponent,
+    SortByTitlePipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

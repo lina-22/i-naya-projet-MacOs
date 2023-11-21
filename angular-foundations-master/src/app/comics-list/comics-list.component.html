@@ -1,4 +1,5 @@
-<ul class="list-unstyled" *ngFor="let comic of comicsFiltre">
+<ul class="list-unstyled" *ngFor="let comic of comicsFiltre
+| sortByTitle">
   <li class="media mt-5">
     <img class="mr-3" alt="Comic cover" src="../assets/image/image_not_available.jpg" />
     <div class="media-body">
@@ -10,4 +11,6 @@
       <p>{{comic.description}}</p>
     </div>
   </li>
+  <!-- <li class="media mt-5" *ngFor="let comic of comics
+| sortByTitle"> {{ comic.title }}-->
 </ul>
