@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { title } from 'process';
+import { ComicService } from '../comic.service';
 import { COMIC, COMICS } from '../data';
 import { Comic, SimpleComic } from '../model';
-import { TabService } from '../tab.service';
+import { TabService, } from '../tab.service';
 
 @Component({
   selector: 'app-comics-list',
@@ -10,13 +11,13 @@ import { TabService } from '../tab.service';
   styleUrls: ['./comics-list.component.css']
 })
 export class ComicsListComponent implements OnInit {
-  comics: Comic[] = COMICS; 
+  comics: Comic[]=[];
   comicsFiltre:Comic[]=[];
-  constructor(private tabService:TabService){
+  constructor(private tabService:TabService, private comicService: ComicService){
     
   }
-
   ngOnInit() {
+    this.comics =this.comicService.getComics();
     this.comicsFiltre=this.comics;
     this.tabService.titleChangedSource.subscribe (title=>{
       if(title==null||title==undefined||title=="All"){
