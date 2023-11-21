@@ -10,7 +10,8 @@ export const COMIC: SimpleComic = {
 };
 
 export const COMICS: Comic[] =
-  [{
+  [
+    {
     'id': 21464,
     'digitalId': 0,
     'title': 'Ultimate Spider-Man (Spanish Language Edition) (2000)',

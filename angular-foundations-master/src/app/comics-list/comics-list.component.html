@@ -1,3 +1,12 @@
-<p>
-  comics-list works!
-</p>
+<ul class="list-unstyled" *ngFor="let comic of comics">
+  <li class="media mt-5">
+    <img class="mr-3" alt="Comic cover" src="../assets/image/image_not_available.jpg" />
+    <div class="media-body">
+      <h2 class="media-heading">
+        <span class="badge badge-danger">#{{comic.issueNumber}}</span>
+        <span class="badge badge-pill badge- secondary"  *ngFor="let cp of comic.prices"><div *ngIf="price>0">${{cp.price}}</div></span>
+      </h2>
+      <p>{{comic.description}}</p>
+    </div>
+  </li>
+</ul>
