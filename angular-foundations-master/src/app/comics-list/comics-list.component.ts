@@ -38,7 +38,21 @@ export class ComicsListComponent implements OnInit {
         ));
       }
     });
-  }}
+
+    this.getComics();
+  }
+
+getComics(){
+  this.comicService.getComicsApi()
+  .subscribe(res => {
+    this.comicsFiltre = res.data.results;
+    console.log('res :', this.comicsFiltre);
+    
+  }
+  )
+}
+
+}
 
 // export class ComicsListComponent {
 //   comic: SimpleComic = {

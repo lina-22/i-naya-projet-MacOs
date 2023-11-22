@@ -12,8 +12,6 @@ import { SortByTitlePipe } from './sort-by-title.pipe';
 import { RoutingModule } from './/routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-// import {HttpClientModule} from @angular/common/http;
-
 @NgModule({
   declarations: [
     AppComponent,
