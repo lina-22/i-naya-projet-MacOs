@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1 hn-loading="saving || loading">{{contact.firstName}} {{contact.lastName}}</h1>
+</div>
+
+<form ng-submit="save();" ng-show="!loading">
+  <dl>
+    <dt>Prénom</dt>
+    <dd><input ng-model="contact.firstName"></dd>
+    <dt>Nom</dt>
+    <dd><input ng-model="contact.lastName"></dd>
+    <dt>Adresse email</dt>
+    <dd><input ng-model="contact.email" type="email"></dd>
+    <dt>Numéro de téléphone</dt>
+    <dd><input ng-model="contact.tel" type="tel"></dd>
+    <dt ng-repeat-start="field in contact.fields | orderBy:'order'" class="additional"><input ng-model="field.name">
+      <input type="button" ng-click="remove(field);" value="X" class="btn btn-xs btn-danger">
+      <span class="handle btn btn-xs btn-default">=</span></dt>
+    <dd ng-repeat-end><input type="{{field.type | lowercase}}" ng-model="field.value" data-toggle="tooltip" title="{{title(field)}}"></dd>
+  </dl>
+
+  <div class="btn-group" style="margin: 0 0 1ex;">
+  	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Ajouter un champ <span class="caret"></span></button>
+  	<ul class="dropdown-menu" role="menu">
+  	  <li><a ng-click="addField('TEXT');">Texte</a></li>
+  	  <li><a ng-click="addField('TEL');">N° de téléphone</a></li>
+  	  <li><a ng-click="addField('URL');">URL</a></li>
+  	  <li><a ng-click="addField('EMAIL');">Adresse email</a></li>
+  	  <li><a ng-click="addField('DATE');">Date</a></li>
+  	  <li><a ng-click="addField('TIME');">Heure</a></li>
+  	  <li><a ng-click="addField('DATETIME');">Date et heure</a></li>
+  	</ul>
+  </div>
+
+  <p><a href="#/{{contact.id}}" class="btn btn-default">Annuler</a>
+    <input type="submit" value="Enregistrer" class="btn btn-success"></p>
+</form>
+
+<p class="alert alert-danger" ng-show="msg">{{msg}}</p>

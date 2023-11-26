@@ -1,0 +1,14 @@
+<div class="page-header">
+  <h1 hn-loading="listIsLoading">TP AngularJS – Contacts</h1>
+</div>
+
+<p><input ng-model="query" placeholder="Recherche"></p>
+
+<ol>
+  <li ng-repeat="contact in contacts | filter:query | orderBy:'lastName'"
+    ><a href="#/{{contact.id}}">{{contact.firstName}} {{contact.lastName}}</a></li>
+</ol>
+
+<p><a href="#/new" class="btn btn-default">Nouveau contact</a></p>
+
+<p class="alert alert-danger" ng-show="msg">{{msg}}</p>

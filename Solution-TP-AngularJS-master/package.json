@@ -1,0 +1,26 @@
+{
+  "name": "solution-tp-angularjs",
+  "version": "1.0.0",
+  "description": "Exemple de solution du TP AngularJS de HN Institut.",
+  "private": true,
+  "main": "app/index.html",
+  "scripts": {
+    "test": "node node_modules/karma/bin/karma start test/karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EtienneMiret/Solution-TP-AngularJS"
+  },
+  "author": "Etienne Miret <etienne.miret@ens-lyon.org>",
+  "bugs": {
+    "url": "https://github.com/EtienneMiret/Solution-TP-AngularJS/issues"
+  },
+  "homepage": "https://github.com/EtienneMiret/Solution-TP-AngularJS#readme",
+  "devDependencies": {
+    "@angular/cli": "^6.0.0-rc.4",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.33",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-jasmine": "^0.3.5"
+  }
+}

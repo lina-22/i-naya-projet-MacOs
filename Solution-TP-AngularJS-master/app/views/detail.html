@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1 hn-loading="contactIsLoading || deleting">{{contact.firstName}} {{contact.lastName}}</h1>
+</div>
+
+<dl ng-show="!contactIsLoading">
+  <dt>Prénom</dt>
+  <dd>{{contact.firstName}}</dd>
+  <dt>Nom</dt>
+  <dd>{{contact.lastName}}</dd>
+  <dt>Adresse email</dt>
+  <dd><a href="mailto:{{contact.email}}">{{contact.email}}</a></dd>
+  <dt>Numéro de téléphone</dt>
+  <dd><a href="{{contact.tel | telUri}}">{{contact.tel}}</a></dd>
+  <dt ng-repeat-start="field in contact.fields | orderBy:'order'">{{field.name}}</dt>
+  <dd ng-repeat-end hn-link-field="field"></dd>
+  <dt>Création</dt>
+  <dd>{{contact.creation | relativeTime:now}}</dd>
+  <dt>Dernière modification</dt>
+  <dd>{{contact.modification | relativeTime:now}}</dd>
+</dl>
+
+<p ng-show="!contactIsLoading"><a href="#/{{contact.id}}/edit" class="btn btn-default">Modifier</a>
+  <input type="button" ng-click="delete();" value="Supprimer" class="btn btn-danger"></p>
+
+<p><a href="#/">Liste des contacts</a></p>
+
+<p class="alert alert-danger" ng-show="msg">{{msg}}</p>
